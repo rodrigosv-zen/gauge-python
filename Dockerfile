@@ -1,4 +1,4 @@
-FROM python:3.7-slim-buster
+FROM python:3.11-slim-buster
 
 # Install Java.
 RUN apt-get update && apt-get install -q -y \
