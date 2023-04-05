@@ -8,6 +8,9 @@ from uuid import uuid1
 from getgauge.python import custom_screenshot_writer
 import requests
 
+from step_impl.utils.utils import generate_auth_header
+from step_impl.utils.auth_header import auth_header
+
 class Driver:
     instance = None
 
@@ -64,3 +67,11 @@ def get_to_api(base_url, endpoint):
     response = requests.get(f'{base_url}{endpoint}')
     print(response.json())
     assert response.json().get('name')
+
+
+@step("Ping the Financial Accounts API at to get the <financial_account_uuid>")
+def get_to_api(financial_account):
+    base_url = 'https://api.dev.zenbusiness.com/financial-accounts/v1/external-bank-accounts/financial-accounts?financial_account_uuid='
+    response = requests.get(f'{base_url}{financial_account}', headers=auth_header)
+    print(response.json())
+    assert response.json().get("institution_name")

@@ -11,3 +11,5 @@ reports
 *.pyc
 
 .idea/
+
+venv/
