@@ -39,6 +39,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Install gauge plugins
 RUN gauge install python && \
-    gauge install screenshot
+    gauge install screenshot && \
+    gauge install html-report
 
 ENV PATH=$HOME/.gauge:$PATH

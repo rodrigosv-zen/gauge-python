@@ -69,9 +69,9 @@ def get_to_api(base_url, endpoint):
     assert response.json().get('name')
 
 
-@step("Ping the Financial Accounts API at to get the <financial_account_uuid>")
-def get_to_api(financial_account):
+@step("Ping the Financial Accounts API at to get the <financial_account_uuid> with <institution_name>")
+def get_to_api(financial_account, institution_name):
     base_url = 'https://api.dev.zenbusiness.com/financial-accounts/v1/external-bank-accounts/financial-accounts?financial_account_uuid='
     response = requests.get(f'{base_url}{financial_account}', headers=auth_header)
     print(response.json())
-    assert response.json().get("institution_name")
+    assert response.json().get("institution_name") == institution_name
