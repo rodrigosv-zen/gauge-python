@@ -8,8 +8,8 @@ from uuid import uuid1
 from getgauge.python import custom_screenshot_writer
 import requests
 
-from step_impl.utils.utils import generate_auth_header
-from step_impl.utils.auth_header import auth_header
+from specs.step_impl.utils.utils import generate_auth_header
+from specs.step_impl.utils.auth_header import auth_header
 
 class Driver:
     instance = None
